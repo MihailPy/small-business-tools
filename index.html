@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Цифровые решения для малого бизнеса</title>
+    <meta
+      name="description"
+      content="Помогаю малому бизнесу принимать заявки, вести учет клиентов и заказов, автоматизировать рутинные задачи и экономить время."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <div class="container hero__wrap">
+        <div class="hero__content">
+          <p class="hero__label">Решения для малого бизнеса</p>
+          <h1>
+            Помогаю принимать заявки, вести учет и автоматизировать рутину без
+            лишней сложности
+          </h1>
+          <p class="hero__text" id="heroText"></p>
+          <a id="heroTelegramButton" class="button button--primary" href="#">
+            Написать в Telegram
+          </a>
+        </div>
+        <div class="hero__card" aria-hidden="true">
+          <h2>Что меняется после внедрения</h2>
+          <ul>
+            <li>Заявки не теряются и приходят в одном месте</li>
+            <li>Появляется прозрачный учет клиентов и заказов</li>
+            <li>Рутина сокращается, остается время на продажи</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="audience">
+        <div class="container">
+          <div class="section__head">
+            <p class="section__label">Для кого</p>
+            <h2>Подходит тем, кто строит дело и ценит порядок в задачах</h2>
+          </div>
+          <div class="chips" id="audienceList"></div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section__head">
+            <p class="section__label">Услуги</p>
+            <h2>Готовые решения с понятным результатом</h2>
+          </div>
+          <div class="cards" id="servicesGrid"></div>
+        </div>
+      </section>
+
+      <section class="section section--accent" id="cases">
+        <div class="container">
+          <div class="section__head">
+            <p class="section__label">Примеры решений</p>
+            <h2>Конкретные сценарии под типовые задачи</h2>
+          </div>
+          <div class="cards cards--compact" id="examplesGrid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="workflow">
+        <div class="container">
+          <div class="section__head">
+            <p class="section__label">Как проходит работа</p>
+            <h2>Понятный процесс без сюрпризов</h2>
+          </div>
+          <ol class="steps" id="workflowSteps"></ol>
+        </div>
+      </section>
+
+      <section class="section" id="pricing">
+        <div class="container">
+          <div class="section__head">
+            <p class="section__label">Цены</p>
+            <h2>Выберите формат под ваш этап</h2>
+          </div>
+          <div class="entry-offer" id="entryOffer"></div>
+          <div class="cards" id="pricingGrid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="trust">
+        <div class="container">
+          <div class="section__head">
+            <p class="section__label">Коротко о навыках</p>
+            <h2>Что умею делать технически</h2>
+          </div>
+          <div class="trust-grid">
+            <div class="chips" id="skillsList"></div>
+            <div class="trust-note" id="trustNote"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--contacts" id="contacts">
+        <div class="container contacts">
+          <div>
+            <p class="section__label">Контакты</p>
+            <h2 id="contactsTitle"></h2>
+            <p class="contacts__text" id="contactsNote"></p>
+          </div>
+          <div class="contacts__actions">
+            <a id="contactsTelegram" class="button button--primary" href="#"
+              >Telegram</a
+            >
+            <a id="contactsEmail" class="button button--secondary" href="#"
+              >Email</a
+            >
+            <a id="contactsCta" class="button button--ghost" href="#top"
+              >Кнопка связи</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p id="footerTitle"></p>
+        <a class="footer__link" href="#top">Наверх</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
