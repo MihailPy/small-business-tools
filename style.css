@@ -287,6 +287,10 @@ p {
   gap: 0.7rem;
 }
 
+.contacts__actions .button--primary {
+  margin-top: 0;
+}
+
 .button {
   appearance: none;
   border: none;
@@ -337,6 +341,12 @@ p {
 
 .footer__link {
   color: inherit;
+}
+
+.footer__disclaimer {
+  margin: 0.5rem 0 0;
+  color: #6b7280;
+  font-size: 0.86rem;
 }
 
 @media (max-width: 1080px) {

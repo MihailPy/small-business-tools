@@ -9,7 +9,12 @@ const siteConfig = {
   contactsNote:
     "Я предложу простой вариант решения, срок и цену. Если задача небольшая, можно начать с мини-формата без большого бюджета.",
   footerTitle: "Цифровые решения для малого бизнеса и самозанятых",
+  footerDisclaimer:
+    "Я не являюсь сотрудником соцзащиты и не оформляю социальные контракты. Помогаю только с цифровыми инструментами для запуска и ведения дела.",
   telegramUrl: "https://t.me/mikhvoid",
+  telegramHandle: "@mikhvoid",
+  maxUrl: "https://max.ru/u/f9LHodD0cOJl-Qdwep4HD3-9UpifxLzs6hApuKbIw4YUsJzvQTKc7abOnzc",
+  maxContact: "Михаил",
   email: "mikhvoid@gmail.com"
 };
 
@@ -50,10 +55,11 @@ const services = [
     timeline: "1-2 дня"
   },
   {
-    title: "Telegram-бот для заявок",
+    title: "Бот для мессенджеров (Max, VK, Telegram и др.)",
     benefit:
       "Принимает заявки автоматически и экономит время на однотипные ответы.",
-    result: "Бот, который задает нужные вопросы и передает заявку вам.",
+    result:
+      "Бот, который задает нужные вопросы и передает заявку вам в удобный канал.",
     priceFrom: "от 8 000 ₽",
     timeline: "4-7 дней"
   },
@@ -89,22 +95,32 @@ const services = [
 */
 const examples = [
   {
-    title: "Для мастера услуг",
-    description: "Форма записи + таблица клиентов + уведомление в Telegram."
+    title: "Мастер услуг",
+    description: "Форма записи + таблица клиентов."
   },
   {
-    title: "Для кондитера",
-    description: "Прием заказов + расчет стоимости + список заказов на неделю."
+    title: "Кондитер",
+    description: "Заказы, даты, предоплаты, список на неделю."
   },
   {
-    title: "Для репетитора",
+    title: "Репетитор",
     description: "Заявки на занятия + расписание + учет оплат."
   },
   {
-    title: "Для ремонта и сервиса",
-    description: "Заявка -> статус -> сумма -> комментарии -> история клиента."
+    title: "Ремонт и бытовые услуги",
+    description: "Заявки, статусы, суммы, история клиентов."
+  },
+  {
+    title: "Торговля и handmade",
+    description: "Заказы, остатки, расходы, прибыль."
   }
 ];
+
+const socialContractBlock = {
+  title: "Помощь участникам соцконтракта",
+  description:
+    "Если вы запускаете дело по соцконтракту, помогу подготовить простые цифровые инструменты для старта: страницу услуг, форму заявок, таблицу учета клиентов и заказов, бота для мессенджеров или автоматизацию рутинных задач."
+};
 
 /*
   Этапы работы:
@@ -126,7 +142,7 @@ const pricingPlans = [
   {
     name: "Мини-задача",
     description:
-      "Если задача небольшая, делаю простое решение за 1-2 дня: форму, таблицу, настройку заявок или небольшой скрипт.",
+      "Настрою форму заявки, сделаю простую таблицу учета, поправлю страницу, подготовлю шаблон прайса или автоматизирую один ручной процесс.",
     price: "от 3 000 ₽",
     timeline: "1-2 дня"
   },
@@ -161,7 +177,7 @@ const entryOffer = {
 const trustBlock = {
   skills: [
     "Python-автоматизация",
-    "Telegram-боты",
+    "Боты для мессенджеров",
     "Обработка Excel/CSV",
     "Обработка изображений",
     "Django",
@@ -244,6 +260,13 @@ function renderEntryOffer() {
   `;
 }
 
+function renderSocialContractBlock() {
+  const titleNode = document.getElementById("socialContractTitle");
+  const blockNode = document.getElementById("socialContractBlock");
+  titleNode.textContent = socialContractBlock.title;
+  blockNode.innerHTML = `<p>${socialContractBlock.description}</p>`;
+}
+
 function renderTrustBlock() {
   const skillsList = document.getElementById("skillsList");
   const trustNote = document.getElementById("trustNote");
@@ -263,16 +286,22 @@ function fillStaticContent() {
   document.getElementById("contactsTitle").textContent = siteConfig.contactsTitle;
   document.getElementById("contactsNote").textContent = siteConfig.contactsNote;
   document.getElementById("footerTitle").textContent = siteConfig.footerTitle;
+  document.getElementById("footerDisclaimer").textContent = siteConfig.footerDisclaimer;
 
   const heroButton = document.getElementById("heroTelegramButton");
   heroButton.href = siteConfig.telegramUrl;
 
   const contactsTelegram = document.getElementById("contactsTelegram");
   contactsTelegram.href = siteConfig.telegramUrl;
+  contactsTelegram.textContent = `Telegram: ${siteConfig.telegramHandle}`;
+
+  const contactsMax = document.getElementById("contactsMax");
+  contactsMax.href = siteConfig.maxUrl;
+  contactsMax.textContent = `Max: ${siteConfig.maxContact}`;
 
   const contactsEmail = document.getElementById("contactsEmail");
   contactsEmail.href = `mailto:${siteConfig.email}`;
-  contactsEmail.textContent = siteConfig.email;
+  contactsEmail.textContent = `Email: ${siteConfig.email}`;
 
   const contactsCta = document.getElementById("contactsCta");
   contactsCta.href = siteConfig.telegramUrl;
@@ -293,4 +322,5 @@ renderAudience();
 renderCards();
 renderWorkflow();
 renderEntryOffer();
+renderSocialContractBlock();
 renderTrustBlock();
