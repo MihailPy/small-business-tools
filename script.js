@@ -217,7 +217,9 @@ function createExampleCard(example) {
   const article = document.createElement("article");
   article.className = "card";
   const imageMarkup = example.image
-    ? `<img class="card__image" src="${example.image}" alt="${example.imageAlt || example.title}" loading="lazy" />`
+    ? `<button class="card__image-button" type="button" data-full-image="${example.image}" data-image-alt="${example.imageAlt || example.title}">
+         <img class="card__image" src="${example.image}" alt="${example.imageAlt || example.title}" loading="lazy" />
+       </button>`
     : "";
   article.innerHTML = `
     ${imageMarkup}
@@ -329,6 +331,54 @@ function renderCards() {
   pricingPlans.forEach((plan) => pricingGrid.appendChild(createPricingCard(plan)));
 }
 
+function setupImageModal() {
+  const modal = document.createElement("div");
+  modal.className = "image-modal";
+  modal.setAttribute("aria-hidden", "true");
+  modal.innerHTML = `
+    <div class="image-modal__backdrop" data-close-image-modal="true"></div>
+    <div class="image-modal__content" role="dialog" aria-modal="true" aria-label="Увеличенное изображение">
+      <button class="image-modal__close" type="button" aria-label="Закрыть" data-close-image-modal="true">×</button>
+      <img class="image-modal__img" src="" alt="" />
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const modalImage = modal.querySelector(".image-modal__img");
+
+  function closeModal() {
+    modal.classList.remove("image-modal--open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("body--modal-open");
+  }
+
+  function openModal(src, alt) {
+    modalImage.src = src;
+    modalImage.alt = alt;
+    modal.classList.add("image-modal--open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("body--modal-open");
+  }
+
+  document.addEventListener("click", (event) => {
+    const imageTrigger = event.target.closest(".card__image-button");
+    if (imageTrigger) {
+      openModal(imageTrigger.dataset.fullImage, imageTrigger.dataset.imageAlt || "");
+      return;
+    }
+
+    if (event.target.closest("[data-close-image-modal='true']")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("image-modal--open")) {
+      closeModal();
+    }
+  });
+}
+
 fillStaticContent();
 renderAudience();
 renderCards();
@@ -336,3 +386,4 @@ renderWorkflow();
 renderEntryOffer();
 renderSocialContractBlock();
 renderTrustBlock();
+setupImageModal();
