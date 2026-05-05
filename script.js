@@ -96,23 +96,33 @@ const services = [
 const examples = [
   {
     title: "Мастер услуг",
-    description: "Форма записи + таблица клиентов."
+    description: "Форма записи + таблица клиентов.",
+    image: "images/registration master.png",
+    imageAlt: "Пример интерфейса для мастера услуг"
   },
   {
     title: "Кондитер",
-    description: "Заказы, даты, предоплаты, список на неделю."
+    description: "Заказы, даты, предоплаты, список на неделю.",
+    image: "images/pastry chef orders.png",
+    imageAlt: "Пример таблицы заказов для кондитера"
   },
   {
     title: "Репетитор",
-    description: "Заявки на занятия + расписание + учет оплат."
+    description: "Заявки на занятия + расписание + учет оплат.",
+    image: "images/teacher appointments.png",
+    imageAlt: "Пример учета записей для репетитора"
   },
   {
     title: "Ремонт и бытовые услуги",
-    description: "Заявки, статусы, суммы, история клиентов."
+    description: "Заявки, статусы, суммы, история клиентов.",
+    image: "images/repair requests.png",
+    imageAlt: "Пример учета заявок для ремонта и бытовых услуг"
   },
   {
     title: "Торговля и handmade",
-    description: "Заказы, остатки, расходы, прибыль."
+    description: "Заказы, остатки, расходы, прибыль.",
+    image: "images/trade_and_handmade.png",
+    imageAlt: "Пример учёта заказов, остатков и прибыли для торговли и handmade"
   }
 ];
 
@@ -206,7 +216,11 @@ function createServiceCard(service) {
 function createExampleCard(example) {
   const article = document.createElement("article");
   article.className = "card";
+  const imageMarkup = example.image
+    ? `<img class="card__image" src="${example.image}" alt="${example.imageAlt || example.title}" loading="lazy" />`
+    : "";
   article.innerHTML = `
+    ${imageMarkup}
     <h3>${example.title}</h3>
     <p>${example.description}</p>
   `;
@@ -303,8 +317,6 @@ function fillStaticContent() {
   contactsEmail.href = `mailto:${siteConfig.email}`;
   contactsEmail.textContent = `Email: ${siteConfig.email}`;
 
-  const contactsCta = document.getElementById("contactsCta");
-  contactsCta.href = siteConfig.telegramUrl;
 }
 
 function renderCards() {
