@@ -1,0 +1,19 @@
+{
+  "title": "Small Business Tools Landing",
+  "status": "ready",
+  "category": "Frontend landing",
+  "priority": 4,
+  "stack": [
+    "HTML5",
+    "CSS3",
+    "Vanilla JavaScript"
+  ],
+  "summary": "Одностраничный сайт для презентации цифровых услуг малому бизнесу.",
+  "highlights": [
+    "Адаптивная вёрстка",
+    "Hero-блок и секции услуг",
+    "Карточки решений и тарифов",
+    "Контент рендерится через JavaScript",
+    "Подходит для GitHub Pages"
+  ]
+}
