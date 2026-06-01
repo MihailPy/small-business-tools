@@ -15,5 +15,6 @@
     "Карточки решений и тарифов",
     "Контент рендерится через JavaScript",
     "Подходит для GitHub Pages"
-  ]
+  ],
+  "demoUrl": "https://mihailpy.github.io/small-business-tools/"
 }
